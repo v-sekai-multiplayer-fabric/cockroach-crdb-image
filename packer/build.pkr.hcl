@@ -75,6 +75,10 @@ build {
   name    = "cockroach-crdb-image-${var.version}"
   sources = ["source.qemu.cockroach-crdb"]
 
+  provisioner "shell" {
+    inline = ["mkdir -p /tmp/quadlets"]
+  }
+
   provisioner "file" {
     source      = "../configs/quadlets/"
     destination = "/tmp/quadlets/"
